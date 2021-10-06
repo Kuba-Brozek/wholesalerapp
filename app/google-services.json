@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "298196701218",
+    "project_id": "wholesalerapp-14825",
+    "storage_bucket": "wholesalerapp-14825.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298196701218:android:9d0fad17caffe905e8ba7b",
+        "android_client_info": {
+          "package_name": "com.Ayathe.wholesaler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298196701218-k652feu9n20nt4cm8l827jj8v43hd8gi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4xlqXs-lFvkhOSS0BPVIOEjJ8v2qvOz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298196701218-k652feu9n20nt4cm8l827jj8v43hd8gi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298196701218:android:222b0e6e6ce1fd95e8ba7b",
+        "android_client_info": {
+          "package_name": "com.Ayathe.wholesalerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298196701218-k652feu9n20nt4cm8l827jj8v43hd8gi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4xlqXs-lFvkhOSS0BPVIOEjJ8v2qvOz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298196701218-k652feu9n20nt4cm8l827jj8v43hd8gi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

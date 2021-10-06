@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B5B5B5">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center_vertical">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:text="@string/tv_sign_in"
+        android:textColor="@color/light_black"
+        android:textSize="@dimen/tv_sign_in_text_size" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/card_view_sign_in_margin_horizontal"
+        android:layout_marginTop="@dimen/card_view_sign_in_margin_top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/card_view_ti_sign_in_margin_horizontal"
+                android:paddingTop="@dimen/card_view_sign_in_ti_margin_top"
+                android:paddingBottom="@dimen/card_view_sign_in_ti_margin_bottom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailLoginInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sign_in_email_hint"
+                    android:inputType="textNoSuggestions" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/card_view_ti_sign_in_margin_horizontal"
+                app:endIconMode="password_toggle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passLoginInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sign_in_password_hint"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/button_sign_in_margin_horizontal"
+                android:layout_marginTop="@dimen/button_sign_in_margin_top"
+                android:layout_marginBottom="@dimen/button_sign_in_margin_bottom"
+                android:background="#2D5778"
+                android:text="@string/sign_in_button"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/button_register_sign_in_margin_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="@dimen/button_register_sign_in_margin_bottom"
+        android:background="@color/material_light"
+        android:text="@string/sign_in_register_button"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>
+
+</ScrollView>
