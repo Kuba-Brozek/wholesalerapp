@@ -81,5 +81,11 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
         homeVm.addFavCar(car)
     }
 
+    override fun onCarClick(car: Car, position: Int) {
+
+        val intent = Intent(activity, ModifyItem::class.java)
+        startActivity(intent)
+    }
+
     
 }

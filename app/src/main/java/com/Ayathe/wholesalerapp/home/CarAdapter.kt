@@ -59,13 +59,13 @@ class CarAdapter(private val listener: OnCarItemLongClick) :
                 listener.onCarLongClick(carsList[adapterPosition], adapterPosition)
                 true
             }
+            view.setOnClickListener() {
+                listener.onCarClick(carsList[adapterPosition], adapterPosition)
+            }
         }
     }
 }
 interface OnCarItemLongClick{
     fun onCarLongClick(car: Car, position: Int)
-}
-
-interface OnCarClick{
     fun onCarClick(car: Car, position: Int)
 }

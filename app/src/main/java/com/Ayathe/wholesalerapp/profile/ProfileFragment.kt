@@ -57,6 +57,9 @@ class ProfileFragment : BaseFragment(), OnCarItemLongClick {
         profileVm.removeFavCar(car)
         adapter.removeCar(car, position)
     }
+    override fun onCarClick(car: Car, position: Int){
+        //TODO: wqe
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK){
