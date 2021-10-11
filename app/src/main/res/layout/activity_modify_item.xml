@@ -6,4 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".activites.ModifyItem">
 
+
+    <ImageView
+        android:id="@+id/moditemimg"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041"
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:src="@drawable/ic_del" />
+
+    <EditText
+        android:id="@+id/moditemname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="dsaadfs"
+        android:textColor="@color/light_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.609"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/moditemdesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="sfdbsfgbdtyntyj"
+        android:textColor="@color/light_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.753"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/xd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dfsfdsfdsfd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.845"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/submitcar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginHorizontal="@dimen/button_sign_in_margin_horizontal"
+        android:background="@color/material_medium"
+        android:text="Prześlij"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

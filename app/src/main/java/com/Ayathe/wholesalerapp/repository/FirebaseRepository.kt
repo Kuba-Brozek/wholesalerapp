@@ -71,6 +71,7 @@ class FirebaseRepository {
     fun getUserData(): LiveData<User>{
         val cloudResult = MutableLiveData<User>()
         val uid = auth.currentUser?.uid
+        val uid2 = auth.uid
 
         cloud.collection("users")
             .document(uid!!)
@@ -84,6 +85,22 @@ class FirebaseRepository {
             }
 
         return cloudResult
+    }
+    fun getCarData() {
+        val cloudResult = MutableLiveData<User>()
+        val uid = auth.uid
+
+        cloud.collection("cars")
+            .document(uid!!)
+            .get()
+            .addOnSuccessListener {
+                val car = it.toObject(User::class.java)
+                cloudResult.postValue(car)
+            }
+            .addOnFailureListener{
+                Log.d(REPO_DEBUG, it.message.toString())
+            }
+
     }
     fun getCars(): LiveData<List<Car>>{
         val cloudResult = MutableLiveData<List<Car>>()

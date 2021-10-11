@@ -9,6 +9,7 @@ class ProfileViewModel : ViewModel() {
     private val repository = FirebaseRepository()
 
     val user = repository.getUserData()
+    val car = repository.getCarData()
     val favCars = user.switchMap {
         repository.getFavCars(it.favCars)
     }

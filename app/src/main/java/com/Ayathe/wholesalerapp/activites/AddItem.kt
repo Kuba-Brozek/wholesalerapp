@@ -48,13 +48,15 @@ class AddItem : AppCompatActivity() {
 
     private fun setupSubmitDataClick(){
 
-
+        val name = name123.text.trim().toString()
+        val desc = opis.text.trim().toString()
         val car = hashMapOf(
-            "name" to name123.text.trim().toString(),
+            "name" to name,
             "id" to ref.id,
-            "description" to opis.text.trim().toString(),
+            "description" to desc,
             "image" to "",
         )
+
 
         db.collection("cars")
             .add(car)

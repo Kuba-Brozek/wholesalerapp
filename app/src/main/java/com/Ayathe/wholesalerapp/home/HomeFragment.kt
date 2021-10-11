@@ -20,9 +20,12 @@ import com.Ayathe.wholesalerapp.activites.AddItem
 import com.Ayathe.wholesalerapp.activites.MainActivity
 import com.Ayathe.wholesalerapp.activites.ModifyItem
 import com.Ayathe.wholesalerapp.data.Car
+import com.Ayathe.wholesalerapp.repository.FirebaseRepository
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import io.grpc.InternalChannelz.id
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.list_row.*
 
 class HomeFragment : BaseFragment(), OnCarItemLongClick {
 
@@ -30,6 +33,7 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
     private val auth = FirebaseAuth.getInstance()
     private val homeVm by viewModels<HomeViewModel>()
     private val adapter = CarAdapter(this)
+    private val repository = FirebaseRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
@@ -84,7 +88,12 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
     override fun onCarClick(car: Car, position: Int) {
 
         val intent = Intent(activity, ModifyItem::class.java)
+        intent.putExtra("carname",car.name.toString())
+        intent.putExtra("cardesc",car.description.toString())
+        intent.putExtra("carimg",car.name.toString())
+        intent.putExtra("carid",car.id.toString())
         startActivity(intent)
+
     }
 
     
