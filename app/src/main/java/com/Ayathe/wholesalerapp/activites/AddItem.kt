@@ -19,10 +19,14 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_add_item.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.io.IOException
+import android.R.id
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 class AddItem : AppCompatActivity() {
 
     val db = Firebase.firestore
+    private val cloud = FirebaseFirestore.getInstance()
     val ref = db.collection("cars").document()
     private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
@@ -52,20 +56,31 @@ class AddItem : AppCompatActivity() {
         val desc = opis.text.trim().toString()
         val car = hashMapOf(
             "name" to name,
-            "id" to ref.id,
             "description" to desc,
             "image" to "",
         )
 
 
+
+
+
         db.collection("cars")
             .add(car)
             .addOnSuccessListener { documentReference ->
+
                 Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                val idBefore = db.collection("cars").document().id;
+                val idcar = documentReference.id;
+                Log.d(TAG, "DocumentSnapshot added with ID: "+idBefore)
+
+                db.collection("cars")
+                    .document(documentReference.id)
+                    .update("id",idcar)
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)
             }
+
 
 
         }

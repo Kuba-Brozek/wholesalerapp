@@ -1,6 +1,7 @@
 package com.Ayathe.wholesalerapp.data
 
-data class Car (val id: String? = null,
+data class Car (
+                val id: String? = null,
                 val name: String? = null,
                 val image: String? = null ,
                 val description: String? = null)

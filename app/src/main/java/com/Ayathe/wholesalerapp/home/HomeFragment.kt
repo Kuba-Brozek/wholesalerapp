@@ -33,7 +33,6 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
     private val auth = FirebaseAuth.getInstance()
     private val homeVm by viewModels<HomeViewModel>()
     private val adapter = CarAdapter(this)
-    private val repository = FirebaseRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
@@ -86,6 +85,7 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
     }
 
     override fun onCarClick(car: Car, position: Int) {
+
 
         val intent = Intent(activity, ModifyItem::class.java)
         intent.putExtra("carname",car.name.toString())
