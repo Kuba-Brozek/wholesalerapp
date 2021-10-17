@@ -1,6 +1,7 @@
 package com.Ayathe.wholesalerapp.activites
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.Bitmap
 import android.icu.number.NumberFormatter.with
@@ -40,6 +41,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.list_row.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.net.URL
 import java.util.*
 
 
@@ -80,20 +82,27 @@ class ModifyItem : AppCompatActivity() {
         moditemdesc.setText(cardesc)
         xd.setText(carid)
         setupSubmitcarClick()
-        //moditemimg.setImageBitmap()
 
     }
 
+
     private fun setupSubmitcarClick() {
+        val id = xd.text.trim().toString()
         submitcar.setOnClickListener {
+            db.collection("cars").document(id)
+                .delete()
+                .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+                .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
 
-            val name = moditemname.text.trim().toString()
-            val desc = moditemdesc.text.trim().toString()
-            val id = xd.text.trim().toString()
-            database = Firebase.database.reference
-
-            db.collection("cars").document(id).update("name", name, "description", desc)
         }
+    }
+    private fun sendDataToFB(){
+        val name = moditemname.text.trim().toString()
+        val desc = moditemdesc.text.trim().toString()
+        val id = xd.text.trim().toString()
+        database = Firebase.database.reference
+
+        db.collection("cars").document(id).update("name", name, "description", desc)
     }
     private fun initUI() {
         btnSelectImage.setOnClickListener {
@@ -109,6 +118,7 @@ class ModifyItem : AppCompatActivity() {
             }else{
                 FirebaseStorageManager().uploadImage(this,imgURI)
                 addUploadRecordToDb(imgURI.toString())
+                sendDataToFB()
             }
         }
     }
@@ -123,11 +133,11 @@ class ModifyItem : AppCompatActivity() {
             btnUpload.setTag(uri)
         }
     }
-    private fun addUploadRecordToDb(uri: String){
+    private fun addUploadRecordToDb(url: String){
         val db = FirebaseFirestore.getInstance()
         val id = xd.text.trim().toString()
         val data = HashMap<String, Any>()
-        data["image"] = uri
+        data["image"] = url
 
         db.collection("cars").document(id)
             .update(data)
