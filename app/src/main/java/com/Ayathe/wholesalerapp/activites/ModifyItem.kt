@@ -10,11 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.compose.material.Snackbar
 import com.Ayathe.wholesalerapp.R
 import com.Ayathe.wholesalerapp.data.Car
 import com.Ayathe.wholesalerapp.profile.ProfileViewModel
@@ -27,6 +29,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.with
 import com.google.android.gms.cast.framework.media.ImagePicker
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
@@ -81,20 +84,33 @@ class ModifyItem : AppCompatActivity() {
         moditemname.setText(carname)
         moditemdesc.setText(cardesc)
         xd.setText(carid)
-        setupSubmitcarClick()
+        showAlertDialog()
 
     }
 
-
-    private fun setupSubmitcarClick() {
-        val id = xd.text.trim().toString()
+    private fun showAlertDialog(){
         submitcar.setOnClickListener {
+        MaterialAlertDialogBuilder(this).setTitle("Alert").setMessage("Are you sure you want to delete that item?")
+            .setNegativeButton("No"){dialog, which ->
+
+            }
+            .setPositiveButton("Delete"){dialog, which->
+            deleteItem()
+            }.show()
+        }
+    }
+
+
+
+    private fun deleteItem() {
+        val id = xd.text.trim().toString()
+
             db.collection("cars").document(id)
                 .delete()
                 .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
                 .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
 
-        }
+
     }
     private fun sendDataToFB(){
         val name = moditemname.text.trim().toString()
