@@ -9,7 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.ActivityResultRegistry
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.Ayathe.wholesalerapp.BaseFragment
@@ -25,6 +30,9 @@ import java.lang.Exception
 class ProfileFragment : BaseFragment(), OnCarItemLongClick {
     private val PROFILE_DEBUG = "PROFILE_DEBUG"
     private val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_CODE = 100
+    lateinit var getContent: ActivityResultLauncher<String>
+
 
     private val profileVm by viewModels<ProfileViewModel>()
     private val adapter = CarAdapter(this)
@@ -53,6 +61,8 @@ class ProfileFragment : BaseFragment(), OnCarItemLongClick {
             }
         })
     }
+
+
     override fun onCarLongClick(car: Car, position: Int) {
         profileVm.removeFavCar(car)
         adapter.removeCar(car, position)
@@ -112,6 +122,8 @@ class ProfileFragment : BaseFragment(), OnCarItemLongClick {
             profileVm.editProfileData(map)
         }
     }
+
+
 
 
 }

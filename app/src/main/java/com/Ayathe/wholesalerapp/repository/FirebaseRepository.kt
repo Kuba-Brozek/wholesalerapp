@@ -46,15 +46,7 @@ class FirebaseRepository {
                 }
     }
 
-    fun addCarPicture(path: String){
-        storage.getReference("cars").child(path).downloadUrl
-            .addOnSuccessListener {
 
-        }
-            .addOnFailureListener{
-
-            }
-    }
 
     private fun updateUserPhoto(url: String?) {
         cloud.collection("users")

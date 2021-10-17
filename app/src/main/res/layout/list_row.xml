@@ -2,8 +2,8 @@
 
 <androidx.cardview.widget.CardView
     android:layout_marginBottom="5dp"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="5dp"
+    app:cardCornerRadius="20dp"
+    android:layout_margin="10dp"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -30,29 +30,28 @@
         android:id="@+id/carName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
         android:text="@string/row_name"
         android:textColor="@color/light_black"
         android:textSize="@dimen/tv_profile_page_text_size"
         app:layout_constraintBottom_toTopOf="@+id/carProductionYear"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toEndOf="@+id/carImage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.93" />
+        app:layout_constraintVertical_bias="0.372" />
 
     <TextView
         android:id="@+id/carProductionYear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="240dp"
+        android:layout_height="126dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/row_year"
         android:textColor="@color/light_black"
-        android:textStyle="italic"
         android:textSize="15sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toEndOf="@+id/carImage" />
 
 
