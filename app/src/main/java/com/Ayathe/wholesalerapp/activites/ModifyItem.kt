@@ -1,34 +1,23 @@
 package com.Ayathe.wholesalerapp.activites
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.icu.number.NumberFormatter.with
+import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.compose.material.Snackbar
 import com.Ayathe.wholesalerapp.R
 import com.Ayathe.wholesalerapp.data.Car
-import com.Ayathe.wholesalerapp.profile.ProfileViewModel
 import com.Ayathe.wholesalerapp.repository.FirebaseRepository
-import com.bumptech.glide.GenericTransitionOptions.with
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Glide.with
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.with
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.with
-import com.google.android.gms.cast.framework.media.ImagePicker
-import com.google.android.gms.tasks.Continuation
-import com.google.android.gms.tasks.Task
+import com.google.android.gms.auth.api.credentials.CredentialsOptions.DEFAULT
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -37,26 +26,29 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
-import io.reactivex.internal.util.NotificationLite.getError
 import kotlinx.android.synthetic.main.activity_modify_item.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.list_row.*
-import java.io.ByteArrayOutputStream
-import java.io.IOException
-import java.net.URL
+import java.lang.Byte.decode
+import java.security.spec.PSSParameterSpec.DEFAULT
+import java.text.DateFormat.DEFAULT
 import java.util.*
+import kotlin.Unit.toString
 
 
 class ModifyItem : AppCompatActivity() {
 
     private val REPO_DEBUG = "REPO_DEBUG"
+    private val mStorageRef = FirebaseStorage.getInstance().reference
+    private lateinit var mProgressDialog: ProgressDialog
     private val REQUEST_IMAGE_CAPTURE = 1
     private val repository = FirebaseRepository()
     val db = Firebase.firestore
+    private val PROFILE_DEBUG = "PROFILE_DEBUG"
     private val storage = FirebaseStorage.getInstance()
     private lateinit var database: DatabaseReference
     private var filePath: Uri? = null
+    var storageRef = storage.reference
     private var storageReference: StorageReference? = null
 
     private val btnSelectImage: AppCompatButton by lazy {
@@ -78,13 +70,16 @@ class ModifyItem : AppCompatActivity() {
         val carname: String = intent.getStringExtra("carname").toString()
         val cardesc: String = intent.getStringExtra("cardesc").toString()
         val carid: String = intent.getStringExtra("carid").toString()
+        val carimg: String = intent.getStringExtra("carimg").toString()
 
         initUI()
 
         moditemname.setText(carname)
         moditemdesc.setText(cardesc)
         xd.setText(carid)
+
         showAlertDialog()
+        loadImage()
 
     }
 
@@ -100,6 +95,17 @@ class ModifyItem : AppCompatActivity() {
         }
     }
 
+   private fun loadImage(){
+
+       val carid: String = intent.getStringExtra("carid").toString()
+       val carimgpng = "posts/$carid.png"
+       val car = storageRef.child(carimgpng)
+       car.downloadUrl.addOnSuccessListener { Uri ->
+           val imageURL = Uri.toString()
+       Glide.with(this).load(imageURL).into(imgPost)
+   }
+
+   }
 
 
     private fun deleteItem() {
@@ -109,6 +115,8 @@ class ModifyItem : AppCompatActivity() {
                 .delete()
                 .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
                 .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+
+
 
 
     }
@@ -132,7 +140,7 @@ class ModifyItem : AppCompatActivity() {
             if(imgURI == null){
                 Toast.makeText(this,"Please select image first",Toast.LENGTH_SHORT).show()
             }else{
-                FirebaseStorageManager().uploadImage(this,imgURI)
+                uploadImage(this,imgURI)
                 addUploadRecordToDb(imgURI.toString())
                 sendDataToFB()
             }
@@ -163,6 +171,24 @@ class ModifyItem : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error saving to DB", Toast.LENGTH_LONG).show()
             }
+    }
+    fun uploadImage(context: Context, imageFileUri: Uri) {
+        mProgressDialog = ProgressDialog(context)
+        mProgressDialog.setMessage("Please wait, image being upload")
+        mProgressDialog.show()
+        val date = Date()
+        val carid: String = intent.getStringExtra("carid").toString()
+
+        val uploadTask = mStorageRef.child("posts/${carid}.png").putFile(imageFileUri)
+        uploadTask.addOnSuccessListener {
+            Log.e("Frebase", "Image Upload success")
+            mProgressDialog.dismiss()
+            val uploadedURL = mStorageRef.child("posts/${date}.png").downloadUrl
+            Log.e("Firebase", "Uploaded $uploadedURL")
+        }.addOnFailureListener {
+            Log.e("Frebase", "Image Upload fail")
+            mProgressDialog.dismiss()
+        }
     }
 
 }

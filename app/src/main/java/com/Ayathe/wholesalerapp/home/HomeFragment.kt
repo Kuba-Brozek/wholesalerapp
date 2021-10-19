@@ -90,7 +90,7 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
         val intent = Intent(activity, ModifyItem::class.java)
         intent.putExtra("carname",car.name.toString())
         intent.putExtra("cardesc",car.description.toString())
-        intent.putExtra("carimg",car.name.toString())
+        intent.putExtra("carimg",car.image.toString())
         intent.putExtra("carid",car.id.toString())
         startActivity(intent)
 
