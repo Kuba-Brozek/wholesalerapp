@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/actionbarbg.xml" value="0.3828125" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/bgcolor.xml" value="0.3828125" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/buttonvalues.xml" value="0.3828125" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/edittext.xml" value="0.4619140625" />
@@ -10,13 +11,14 @@
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/ic_add.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/ic_del.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/ic_dodajitem.xml" value="0.3828125" />
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/ic_dropdown.xml" value="0.3828125" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/drawable/ic_modify.xml" value="0.3828125" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/font/fonts.xml" value="0.39076923076923076" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_add_item.xml" value="0.33" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_main.xml" value="0.21875" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_modify_item.xml" value="0.33" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_registration.xml" value="0.33" />
-        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_home.xml" value="0.21875" />
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_sign_up.xml" value="0.36102564102564105" />
@@ -24,6 +26,7 @@
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/menu/bottom_nav_menu.xml" value="0.21875" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/menu/logout_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/menu/modifyitem_top_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
       </map>
     </option>
   </component>

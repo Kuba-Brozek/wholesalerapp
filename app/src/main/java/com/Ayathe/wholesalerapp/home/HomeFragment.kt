@@ -96,5 +96,5 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
 
     }
 
-    
+
 }

@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.wholesalerapp">
-        <activity android:name=".activites.ModifyItem"></activity>
+        <activity android:name=".activites.ModifyItem"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            />
         <activity android:name=".activites.AddItem" />
         <activity android:name=".activites.RegistrationActivity">
             <intent-filter>
@@ -21,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activites.MainActivity" />
+        <activity android:name=".activites.MainActivity"
+            />
     </application>
 
 </manifest>
