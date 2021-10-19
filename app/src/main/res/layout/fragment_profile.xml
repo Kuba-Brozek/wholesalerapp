@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_page_color">
+    android:background="@drawable/bgcolor">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,10 +33,11 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/userImage"
                 android:text="@string/main_page_tv_name"
-                android:textColor="@color/light_black"
+                android:textColor="#FFFFFF"
                 android:textSize="@dimen/tv_profile_page_text_size" />
 
             <EditText
+                android:background="@drawable/edittext"
                 android:id="@+id/userNameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,25 +54,29 @@
                 android:layout_below="@id/userNameET"
                 android:layout_toRightOf="@id/userImage"
                 android:text="@string/main_page_tv_surname"
-                android:textColor="@color/light_black"
+                android:textColor="#FFFFFF"
                 android:textSize="@dimen/tv_profile_page_text_size" />
 
             <EditText
                 android:id="@+id/userSurnameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext"
                 android:layout_below="@id/textViewSurname"
                 android:layout_toRightOf="@id/userImage"
                 android:hint="@string/main_page_ed_surname"
                 android:textColor="@color/light_black" />
 
-            <Button
-                android:layout_gravity="end"
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/submitDataProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
                 android:layout_marginHorizontal="@dimen/button_sign_in_margin_horizontal"
-                android:background="@color/material_medium"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/buttonvalues"
                 android:text="Prześlij"
                 android:textColor="@android:color/white" />
 
@@ -84,17 +89,21 @@
             android:layout_below="@id/userImage"
             android:layout_marginTop="24dp"
             android:text="@string/main_page_tv_email"
-            android:textColor="@color/light_black"
+            android:textColor="#FFFFFF"
             android:textSize="@dimen/tv_profile_page_text_size" />
 
-        <TextView
+        <EditText
             android:id="@+id/userEmailET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewEmail"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="1dp"
+
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/edittext"
             android:hint="@string/main_page_ed_email"
-            android:textColor="@color/light_black"
             android:textSize="15sp" />
 
 
@@ -111,6 +120,7 @@
                 android:text="Produkty na sprzedaż"
                 android:textAlignment="center"
                 android:textSize="18sp"
+                android:textColor="@color/white"
                 android:textStyle="italic|bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -124,4 +134,4 @@
         </LinearLayout>
     </RelativeLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

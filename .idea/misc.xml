@@ -14,10 +14,12 @@
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/font/fonts.xml" value="0.39076923076923076" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_add_item.xml" value="0.33" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_main.xml" value="0.21875" />
-        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_modify_item.xml" value="0.25" />
-        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_registration.xml" value="0.184375" />
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_modify_item.xml" value="0.33" />
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/activity_registration.xml" value="0.33" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_home.xml" value="0.21875" />
-        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_profile.xml" value="0.184375" />
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
+        <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/fragment_sign_up.xml" value="0.36102564102564105" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/layout/list_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/menu/bottom_nav_menu.xml" value="0.21875" />
         <entry key="..\:/Users/kubab/AndroidStudioProjects/wholesalerapplication/app/src/main/res/menu/logout_menu.xml" value="0.36666666666666664" />

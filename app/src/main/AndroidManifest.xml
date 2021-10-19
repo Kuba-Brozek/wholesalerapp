@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FirebaseSeriesMini">
+        android:theme="@style/Theme.wholesalerapp">
         <activity android:name=".activites.ModifyItem"></activity>
         <activity android:name=".activites.AddItem" />
         <activity android:name=".activites.RegistrationActivity">
