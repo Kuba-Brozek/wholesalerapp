@@ -31,7 +31,7 @@
     <string name="main_page_tv_email">E-mail</string>
     <string name="main_page_ed_email">Twoj E-mail</string>
     <string name="additemname">Nazwa produktu</string>
-    <string name="additemdesc">Opis produktu</string>
+    <string name="additemdesc"> Opis produktu</string>
 
 
     <string name="foo">RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView

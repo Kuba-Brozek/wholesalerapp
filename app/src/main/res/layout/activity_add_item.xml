@@ -4,21 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.AddItem">
+    tools:context=".activites.AddItem"
+    android:background="@drawable/bgcolor">
 
     <EditText
         android:id="@+id/name123"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:autofillHints="ah"
+        android:background="@drawable/edittext"
         android:hint="@string/additemname"
-        android:textColor="@color/light_black"
+
+        android:padding="5dp"
+        android:textColor="#FFFFFF"
+        android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.086"
+        tools:ignore="TextFields" />
 
     <EditText
         android:id="@+id/opis"
@@ -28,32 +36,38 @@
         android:hint="@string/additemdesc"
         android:inputType="textMultiLine"
         android:lines="8"
+        android:background="@drawable/edittext"
+        android:layout_margin="12dp"
         android:maxLines="10"
         android:minLines="6"
         android:scrollbars="vertical"
-        android:textColor="@color/light_black"
+        android:textColor="@color/main_page_color"
+        android:textSize="22dp"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name123"
-        app:layout_constraintVertical_bias="0.133" />
+        app:layout_constraintVertical_bias="0.105" />
 
     <Button
         android:id="@+id/submititem"
         android:layout_width="374dp"
-        android:layout_height="37dp"
-        android:layout_gravity="end"
-        android:layout_marginHorizontal="@dimen/button_sign_in_margin_horizontal"
-        android:background="@color/material_medium"
-        android:text="Prześlij"
-        android:textColor="@android:color/white"
+        android:layout_height="40dp"
+        android:text="ADD ITEM"
+        android:textSize="28dp"
+        android:textFontWeight="650"
+        android:background="@drawable/buttonvalues"
+        android:textAlignment="center"
+        android:textColor="#6E6E6E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name123"
-        app:layout_constraintVertical_bias="0.973" />
+        app:layout_constraintVertical_bias="0.973"
+        tools:ignore="RtlCompat" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
