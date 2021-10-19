@@ -5,7 +5,6 @@ import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,10 +13,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import com.Ayathe.wholesalerapp.R
-import com.Ayathe.wholesalerapp.data.Car
 import com.Ayathe.wholesalerapp.repository.FirebaseRepository
 import com.bumptech.glide.Glide
-import com.google.android.gms.auth.api.credentials.CredentialsOptions.DEFAULT
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DatabaseReference
@@ -29,13 +26,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageException
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_modify_item.*
-import kotlinx.android.synthetic.main.fragment_profile.*
-import kotlinx.android.synthetic.main.list_row.*
-import java.lang.Byte.decode
-import java.security.spec.PSSParameterSpec.DEFAULT
-import java.text.DateFormat.DEFAULT
 import java.util.*
-import kotlin.Unit.toString
 
 
 class ModifyItem : AppCompatActivity() {

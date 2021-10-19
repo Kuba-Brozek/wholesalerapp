@@ -1,26 +1,16 @@
 package com.Ayathe.wholesalerapp.activites
 
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import com.Ayathe.wholesalerapp.R
-import com.Ayathe.wholesalerapp.data.Car
-import com.Ayathe.wholesalerapp.repository.FirebaseRepository
-import com.bumptech.glide.Glide
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_add_item.*
-import kotlinx.android.synthetic.main.fragment_profile.*
-import java.io.IOException
-import android.R.id
-import com.Ayathe.wholesalerapp.home.HomeFragment
 import com.google.firebase.firestore.FirebaseFirestore
 
 
