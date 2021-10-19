@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_add_item.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.io.IOException
 import android.R.id
+import com.Ayathe.wholesalerapp.home.HomeFragment
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -57,12 +58,7 @@ class AddItem : AppCompatActivity() {
         val car = hashMapOf(
             "name" to name,
             "description" to desc,
-            "image" to "",
-        )
-
-
-
-
+            "image" to "",)
 
         db.collection("cars")
             .add(car)
@@ -76,16 +72,13 @@ class AddItem : AppCompatActivity() {
                 db.collection("cars")
                     .document(documentReference.id)
                     .update("id",idcar)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)
             }
-
-
-
         }
-
-
     }
 
 

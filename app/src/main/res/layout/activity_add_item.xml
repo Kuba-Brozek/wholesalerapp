@@ -41,8 +41,8 @@
 
     <Button
         android:id="@+id/submititem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="374dp"
+        android:layout_height="37dp"
         android:layout_gravity="end"
         android:layout_marginHorizontal="@dimen/button_sign_in_margin_horizontal"
         android:background="@color/material_medium"
@@ -50,26 +50,10 @@
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name123"
-        app:layout_constraintVertical_bias="0.972" />
-
-    <Button
-        android:id="@+id/przeslijzdjecie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginHorizontal="@dimen/button_sign_in_margin_horizontal"
-        android:background="@color/material_medium"
-        android:text="Dodaj zdjęcie"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name123"
-        app:layout_constraintVertical_bias="0.972" />
+        app:layout_constraintVertical_bias="0.973" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

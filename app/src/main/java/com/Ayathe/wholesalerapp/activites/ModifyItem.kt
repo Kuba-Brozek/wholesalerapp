@@ -18,6 +18,7 @@ import com.Ayathe.wholesalerapp.data.Car
 import com.Ayathe.wholesalerapp.repository.FirebaseRepository
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.credentials.CredentialsOptions.DEFAULT
+import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -25,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageException
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_modify_item.*
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -90,7 +92,8 @@ class ModifyItem : AppCompatActivity() {
 
             }
             .setPositiveButton("Delete"){dialog, which->
-            deleteItem()
+                deleteItem()
+                //DeleteImageFromStorage()
             }.show()
         }
     }
@@ -111,15 +114,26 @@ class ModifyItem : AppCompatActivity() {
     private fun deleteItem() {
         val id = xd.text.trim().toString()
 
+
             db.collection("cars").document(id)
                 .delete()
-                .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
-                .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+                .addOnSuccessListener {
+                    Log.d(TAG, "DocumentSnapshot successfully deleted!")
 
 
-
-
+                }
+                .addOnFailureListener {  }
     }
+
+    /*private fun DeleteImageFromStorage(){
+        val carid: String = intent.getStringExtra("carid").toString()
+        val carimgpng = "posts/$carid.png"
+        storageRef.child(carimgpng).delete().addOnSuccessListener {
+        }.addOnFailureListener{
+           MyFailureListener()
+       }
+    } */
+
     private fun sendDataToFB(){
         val name = moditemname.text.trim().toString()
         val desc = moditemdesc.text.trim().toString()
@@ -143,6 +157,8 @@ class ModifyItem : AppCompatActivity() {
                 uploadImage(this,imgURI)
                 addUploadRecordToDb(imgURI.toString())
                 sendDataToFB()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
         }
     }
@@ -188,6 +204,13 @@ class ModifyItem : AppCompatActivity() {
         }.addOnFailureListener {
             Log.e("Frebase", "Image Upload fail")
             mProgressDialog.dismiss()
+        }
+    }
+    internal inner class MyFailureListener : OnFailureListener {
+        override fun onFailure(exception: Exception) {
+            val errorCode = (exception as StorageException).errorCode
+            val errorMessage = exception.message
+            // test the errorCode and errorMessage, and handle accordingly
         }
     }
 
