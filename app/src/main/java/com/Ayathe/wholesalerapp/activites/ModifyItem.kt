@@ -84,7 +84,8 @@ class ModifyItem : AppCompatActivity() {
             }
             .setPositiveButton("Delete"){dialog, which->
                 deleteItem()
-                //DeleteImageFromStorage()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }.show()
         }
     }
@@ -110,20 +111,18 @@ class ModifyItem : AppCompatActivity() {
                 .delete()
                 .addOnSuccessListener {
                     Log.d(TAG, "DocumentSnapshot successfully deleted!")
+                    try {
+                        val carid: String = intent.getStringExtra("carid").toString()
+                        val carimgpng = "posts/$carid.png"
+                        val message = ""
+                        storageRef.child(carimgpng).delete().addOnSuccessListener {
+                        }
+                    } catch (e: Exception) {
 
+                        }
 
+                    }
                 }
-                .addOnFailureListener {  }
-    }
-
-    /*private fun DeleteImageFromStorage(){
-        val carid: String = intent.getStringExtra("carid").toString()
-        val carimgpng = "posts/$carid.png"
-        storageRef.child(carimgpng).delete().addOnSuccessListener {
-        }.addOnFailureListener{
-           MyFailureListener()
-       }
-    } */
 
     private fun sendDataToFB(){
         val name = moditemname.text.trim().toString()
@@ -197,14 +196,6 @@ class ModifyItem : AppCompatActivity() {
             mProgressDialog.dismiss()
         }
     }
-    internal inner class MyFailureListener : OnFailureListener {
-        override fun onFailure(exception: Exception) {
-            val errorCode = (exception as StorageException).errorCode
-            val errorMessage = exception.message
-            // test the errorCode and errorMessage, and handle accordingly
-        }
-    }
-
 }
 
 
