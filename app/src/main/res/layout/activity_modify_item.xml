@@ -28,12 +28,10 @@
         android:layout_height="wrap_content"
         android:hint="132321312321321"
         android:textSize="20dp"
-        android:layout_margin="7dp"
+        android:layout_margin="5dp"
         android:padding="3dp"
-        android:maxLines="8"
-        android:gravity="center"
         android:background="@drawable/edittext"
-        android:textColor="#000000"
+        android:textColor="@color/light_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,21 +44,18 @@
         android:id="@+id/moditemdesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
+        android:layout_margin="5dp"
         android:background="@drawable/edittext"
-        android:gravity="center"
         android:hint="12321312"
-        android:lines="4"
-        android:minHeight="50dp"
         android:padding="3dp"
-        android:textColor="#000000"
+        android:textColor="@color/light_black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.728"
+        app:layout_constraintVertical_bias="0.637"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -77,7 +72,7 @@
         />
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/submitcar"
         android:layout_width="120dp"
         android:layout_height="50dp"
@@ -87,7 +82,7 @@
         android:textSize="18dp"
         android:textFontWeight="720"
         android:gravity="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#6E6E6E"
         android:background="@drawable/buttonvalues"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,17 +91,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/btn_choose_image"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:text="CHOOSE IMAGE"
-        android:textSize="18.5dp"
-        android:textFontWeight="720"
+        android:textSize="19dp"
+        android:textFontWeight="800"
         android:gravity="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#6E6E6E"
         android:background="@drawable/buttonvalues"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,13 +110,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/btn_upload_image"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:textSize="18.5dp"
-        android:textColor="#FFFFFF"
-        android:textFontWeight="720"
+        android:textSize="19dp"
+        android:textColor="#6E6E6E"
+        android:textFontWeight="800"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:text="UPLOAD DATA"

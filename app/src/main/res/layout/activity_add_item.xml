@@ -16,6 +16,7 @@
         android:autofillHints="ah"
         android:background="@drawable/edittext"
         android:hint="@string/additemname"
+
         android:padding="5dp"
         android:textColor="#FFFFFF"
         android:textSize="22dp"
@@ -41,7 +42,7 @@
         android:minLines="6"
         android:padding="5dp"
         android:scrollbars="vertical"
-        android:textColor="#000000"
+        android:textColor="@color/main_page_color"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,21 +50,23 @@
         app:layout_constraintTop_toBottomOf="@+id/name123"
         app:layout_constraintVertical_bias="0.015" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/submititem"
-        style="@style/FirebaseUI.Button"
         android:layout_width="374dp"
         android:layout_height="40dp"
-        android:background="@drawable/buttonvalues"
         android:text="ADD ITEM"
-        android:textSize="20dp"
+        android:textSize="28dp"
+        android:textFontWeight="650"
+        android:background="@drawable/buttonvalues"
+        android:textAlignment="center"
+        android:textColor="#6E6E6E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/name123"
+        app:layout_constraintVertical_bias="0.973"
+        tools:ignore="RtlCompat" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

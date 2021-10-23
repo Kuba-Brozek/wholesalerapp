@@ -44,7 +44,6 @@
         android:id="@+id/carProductionYear"
         android:layout_width="240dp"
         android:layout_height="126dp"
-        android:paddingLeft="6dp"
         android:layout_marginEnd="10dp"
         android:text="@string/row_year"
         android:textColor="@color/light_black"

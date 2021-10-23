@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatButton
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -17,8 +16,6 @@ class LoginFragment: BaseFragment(){
 
     private val fbAuth = FirebaseAuth.getInstance()
     private val LOG_DEUBG = "LOG_DEBUG"
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +40,7 @@ class LoginFragment: BaseFragment(){
 
     private fun setupLoginClick() {
         loginButton.setOnClickListener {
-            val email = textInputLayout.text?.trim().toString()
+            val email = emailLoginInput.text?.trim().toString()
             val pass = passLoginInput.text?.trim().toString()
 
             fbAuth.signInWithEmailAndPassword(email, pass)
