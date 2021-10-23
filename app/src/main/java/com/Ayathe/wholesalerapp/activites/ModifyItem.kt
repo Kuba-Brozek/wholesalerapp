@@ -43,18 +43,12 @@ class ModifyItem : AppCompatActivity() {
     private var filePath: Uri? = null
     var storageRef = storage.reference
     private var storageReference: StorageReference? = null
-
     private val btnSelectImage: AppCompatButton by lazy {
-        findViewById(R.id.btn_choose_image)
-    }
-
+        findViewById(R.id.btn_choose_image) }
     private val imgPost: AppCompatImageView by lazy {
-        findViewById(R.id.moditemimg)
-    }
-
+        findViewById(R.id.moditemimg) }
     private val btnUpload: AppCompatButton by lazy {
-        findViewById(R.id.btn_upload_image)
-    }
+        findViewById(R.id.btn_upload_image) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,22 +60,17 @@ class ModifyItem : AppCompatActivity() {
         val carimg: String = intent.getStringExtra("carimg").toString()
 
         initUI()
-
         moditemname.setText(carname)
         moditemdesc.setText(cardesc)
         xd.setText(carid)
-
         showAlertDialog()
         loadImage()
-
     }
 
     private fun showAlertDialog(){
         submitcar.setOnClickListener {
         MaterialAlertDialogBuilder(this).setTitle("Alert").setMessage("Are you sure you want to delete that item?")
-            .setNegativeButton("No"){dialog, which ->
-
-            }
+            .setNegativeButton("No"){dialog, which -> }
             .setPositiveButton("Delete"){dialog, which->
                 deleteItem()
                 val intent = Intent(this, MainActivity::class.java)
@@ -95,17 +84,16 @@ class ModifyItem : AppCompatActivity() {
        val carid: String = intent.getStringExtra("carid").toString()
        val carimgpng = "posts/$carid.png"
        val car = storageRef.child(carimgpng)
+
        car.downloadUrl.addOnSuccessListener { Uri ->
            val imageURL = Uri.toString()
        Glide.with(this).load(imageURL).into(imgPost)
-   }
-
+       }
    }
 
 
     private fun deleteItem() {
         val id = xd.text.trim().toString()
-
 
             db.collection("cars").document(id)
                 .delete()
@@ -115,12 +103,8 @@ class ModifyItem : AppCompatActivity() {
                         val carid: String = intent.getStringExtra("carid").toString()
                         val carimgpng = "posts/$carid.png"
                         val message = ""
-                        storageRef.child(carimgpng).delete().addOnSuccessListener {
-                        }
-                    } catch (e: Exception) {
-
-                        }
-
+                        storageRef.child(carimgpng).delete().addOnSuccessListener { }
+                    } catch (e: Exception) { }
                     }
                 }
 
@@ -138,7 +122,6 @@ class ModifyItem : AppCompatActivity() {
             intent.type = "image/*"
             startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
         }
-
         btnUpload.setOnClickListener{
             val imgURI = btnUpload.tag as Uri?
             if(imgURI == null){
@@ -155,15 +138,13 @@ class ModifyItem : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-            //Image Uri will not be null for RESULT_OK
             val uri: Uri = data?.data!!
-
-            // Use Uri object instead of File to avoid storage permissions
             imgPost.setImageURI(uri)
             btnUpload.setTag(uri)
         }
     }
     private fun addUploadRecordToDb(url: String){
+
         val db = FirebaseFirestore.getInstance()
         val id = xd.text.trim().toString()
         val data = HashMap<String, Any>()
@@ -179,13 +160,15 @@ class ModifyItem : AppCompatActivity() {
             }
     }
     fun uploadImage(context: Context, imageFileUri: Uri) {
+
         mProgressDialog = ProgressDialog(context)
         mProgressDialog.setMessage("Please wait, image being upload")
         mProgressDialog.show()
+
         val date = Date()
         val carid: String = intent.getStringExtra("carid").toString()
-
         val uploadTask = mStorageRef.child("posts/${carid}.png").putFile(imageFileUri)
+
         uploadTask.addOnSuccessListener {
             Log.e("Frebase", "Image Upload success")
             mProgressDialog.dismiss()
