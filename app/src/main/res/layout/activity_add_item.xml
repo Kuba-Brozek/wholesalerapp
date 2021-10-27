@@ -7,6 +7,7 @@
     tools:context=".activites.AddItem"
     android:background="@drawable/bgcolor">
 
+
     <EditText
         android:id="@+id/name123"
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.086"
+        app:layout_constraintVertical_bias="0.099"
         tools:ignore="TextFields" />
 
     <EditText
@@ -46,26 +47,29 @@
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name123"
-        app:layout_constraintVertical_bias="0.015" />
+        app:layout_constraintVertical_bias="0.048" />
 
-    <Button
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submititem"
-        android:layout_width="374dp"
-        android:layout_height="40dp"
-        android:text="ADD ITEM"
-        android:textSize="28dp"
-        android:textFontWeight="650"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:background="@drawable/buttonvalues"
+        android:text="ADD ITEM"
+        android:drawableStart="@drawable/ic_add"
         android:textAlignment="center"
-        android:textColor="#6E6E6E"
+        android:textColor="#FFFFFF"
+        android:textFontWeight="650"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name123"
-        app:layout_constraintVertical_bias="0.973"
+        app:layout_constraintVertical_bias="0.952"
         tools:ignore="RtlCompat" />
 
 
