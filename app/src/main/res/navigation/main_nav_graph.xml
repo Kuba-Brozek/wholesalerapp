@@ -12,10 +12,32 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_profile"
         android:id="@+id/profileFragment"
         android:name="com.Ayathe.wholesalerapp.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_home_Fragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/customer_fragment"
+        android:id="@+id/customerFragment"
+        android:name="com.Ayathe.wholesalerapp.customerFragment.customerFragment"
+        android:label="customerFragment" >
+        <action
+            android:id="@+id/action_customerFragment_to_home_Fragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_customerFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

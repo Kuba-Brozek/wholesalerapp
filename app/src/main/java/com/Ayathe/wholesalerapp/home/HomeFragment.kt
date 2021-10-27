@@ -37,8 +37,6 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
