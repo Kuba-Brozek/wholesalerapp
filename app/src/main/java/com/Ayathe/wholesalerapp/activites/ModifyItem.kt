@@ -125,7 +125,10 @@ class ModifyItem : AppCompatActivity() {
         btnUpload.setOnClickListener{
             val imgURI = btnUpload.tag as Uri?
             if(imgURI == null){
-                Toast.makeText(this,"Please select image first",Toast.LENGTH_SHORT).show()
+                sendDataToFB()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+
             }else{
                 uploadImage(this,imgURI)
                 addUploadRecordToDb(imgURI.toString())
