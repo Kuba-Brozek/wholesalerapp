@@ -91,7 +91,6 @@ class ModifyItem : AppCompatActivity() {
        }
    }
 
-
     private fun deleteItem() {
         val id = xd.text.trim().toString()
 
@@ -183,7 +182,3 @@ class ModifyItem : AppCompatActivity() {
         }
     }
 }
-
-
-
-
