@@ -6,16 +6,20 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import com.Ayathe.wholesalerapp.R
+import com.Ayathe.wholesalerapp.databinding.ActivityMainBinding
 import com.Ayathe.wholesalerapp.repository.FirebaseRepository
 import com.bumptech.glide.Glide
-import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -23,10 +27,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageException
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_modify_item.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ModifyItem : AppCompatActivity() {
@@ -50,6 +54,11 @@ class ModifyItem : AppCompatActivity() {
     private val btnUpload: AppCompatButton by lazy {
         findViewById(R.id.btn_upload_image) }
 
+    private lateinit var binding: ActivityMainBinding
+    var data: MutableList<String> = ArrayList()
+    lateinit var option: Spinner
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modify_item)
@@ -65,6 +74,46 @@ class ModifyItem : AppCompatActivity() {
         xd.setText(carid)
         showAlertDialog()
         loadImage()
+        arrayOfClients()
+
+        option = findViewById(R.id.spinner) as Spinner
+
+        option.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, data)
+
+        option.onItemSelectedListener = object : AdapterView.OnItemClickListener,
+            AdapterView.OnItemSelectedListener {
+            override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
+
+    }
+
+
+
+
+    private fun arrayOfClients(): MutableList<String>{
+        db.collection("client")
+            .whereEqualTo("client", true)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    data.add( "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+        return data
     }
 
     private fun showAlertDialog(){
