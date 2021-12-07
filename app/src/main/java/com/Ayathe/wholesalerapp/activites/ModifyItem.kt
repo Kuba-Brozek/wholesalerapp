@@ -35,7 +35,6 @@ import kotlin.collections.ArrayList
 
 class ModifyItem : AppCompatActivity() {
 
-    private val REPO_DEBUG = "REPO_DEBUG"
     private val mStorageRef = FirebaseStorage.getInstance().reference
     private lateinit var mProgressDialog: ProgressDialog
     private val REQUEST_IMAGE_CAPTURE = 1
@@ -56,6 +55,7 @@ class ModifyItem : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     var data: MutableList<String> = ArrayList()
+    var datadisplay: MutableList<String> = ArrayList()
     lateinit var option: Spinner
 
 
@@ -71,14 +71,14 @@ class ModifyItem : AppCompatActivity() {
         initUI()
         moditemname.setText(carname)
         moditemdesc.setText(cardesc)
-        xd.setText(carid)
+        xd.text = carid
         showAlertDialog()
         loadImage()
         arrayOfClients()
 
-        option = findViewById(R.id.spinner) as Spinner
+        option = findViewById(R.id.spinner)
 
-        option.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, data)
+        option.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, datadisplay)
 
         option.onItemSelectedListener = object : AdapterView.OnItemClickListener,
             AdapterView.OnItemSelectedListener {
@@ -87,7 +87,7 @@ class ModifyItem : AppCompatActivity() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                TODO("Not yet implemented")
+                val choice: String = parent?.getItemAtPosition(position).toString();
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -107,13 +107,14 @@ class ModifyItem : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    data.add( "${document.id} => ${document.data}")
+                    data.add( "ID Klienta: ${document.id}, dane klienta: ${document.data}")
+                    datadisplay.add( "Dane klienta: ${document.data}")
                 }
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
-        return data
+        return datadisplay
     }
 
     private fun showAlertDialog(){
@@ -191,7 +192,7 @@ class ModifyItem : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             val uri: Uri = data?.data!!
             imgPost.setImageURI(uri)
-            btnUpload.setTag(uri)
+            btnUpload.tag = uri
         }
     }
     private fun addUploadRecordToDb(url: String){
@@ -221,12 +222,12 @@ class ModifyItem : AppCompatActivity() {
         val uploadTask = mStorageRef.child("posts/${carid}.png").putFile(imageFileUri)
 
         uploadTask.addOnSuccessListener {
-            Log.e("Frebase", "Image Upload success")
+            Log.e("Firebase", "Image Upload success")
             mProgressDialog.dismiss()
             val uploadedURL = mStorageRef.child("posts/${date}.png").downloadUrl
             Log.e("Firebase", "Uploaded $uploadedURL")
         }.addOnFailureListener {
-            Log.e("Frebase", "Image Upload fail")
+            Log.e("Firebase", "Image Upload fail")
             mProgressDialog.dismiss()
         }
     }
