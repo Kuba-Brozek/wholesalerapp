@@ -6,15 +6,15 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: "kotlin-kapt"
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
 
     buildFeatures{viewBinding true}
 
     defaultConfig {
         applicationId "com.Ayathe.wholesalerapp"
         minSdkVersion 24
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -43,25 +43,25 @@ dependencies {
     //Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
 
-    implementation("androidx.compose.ui:ui:1.0.1")
+    implementation("androidx.compose.ui:ui:1.0.5")
     // Tooling support (Previews, etc.)
-    implementation("androidx.compose.ui:ui-tooling:1.0.1")
+    implementation("androidx.compose.ui:ui-tooling:1.0.5")
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation("androidx.compose.foundation:foundation:1.0.1")
+    implementation("androidx.compose.foundation:foundation:1.0.5")
     // Material Design
-    implementation("androidx.compose.material:material:1.0.1")
+    implementation("androidx.compose.material:material:1.0.5")
     // Material design icons
-    implementation("androidx.compose.material:material-icons-core:1.0.1")
-    implementation("androidx.compose.material:material-icons-extended:1.0.1")
+    implementation("androidx.compose.material:material-icons-core:1.0.5")
+    implementation("androidx.compose.material:material-icons-extended:1.0.5")
     // Integration with observables
-    implementation("androidx.compose.runtime:runtime-livedata:1.0.1")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.0.1")
-    implementation 'androidx.lifecycle:lifecycle-common-java8:2.3.1'
-    implementation 'com.google.android.gms:play-services-cast-framework:20.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation("androidx.compose.runtime:runtime-livedata:1.0.5")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.0.5")
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.4.0'
+    implementation 'com.google.android.gms:play-services-cast-framework:20.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     // UI Tests
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.1")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
     //Firebase Auth
     implementation 'com.firebaseui:firebase-ui-auth:6.4.0'
 
@@ -73,21 +73,21 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-    implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
     androidTestImplementation 'org.junit.jupiter:junit-jupiter'
-    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.13.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     //Navigation UI
     def nav_version = "2.3.1"
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
     //Lifecycle & ViewModel
     def lifecycle_version = "2.2.0"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"

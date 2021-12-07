@@ -210,7 +210,7 @@ class ModifyItem : AppCompatActivity() {
                 Toast.makeText(this, "Error saving to DB", Toast.LENGTH_LONG).show()
             }
     }
-    fun uploadImage(context: Context, imageFileUri: Uri) {
+    private fun uploadImage(context: Context, imageFileUri: Uri) {
 
         mProgressDialog = ProgressDialog(context)
         mProgressDialog.setMessage("Please wait, image being upload")
