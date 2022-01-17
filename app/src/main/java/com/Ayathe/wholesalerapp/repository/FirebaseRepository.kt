@@ -70,7 +70,7 @@ class FirebaseRepository {
             .get()
             .addOnSuccessListener {
                 val user = it.toObject(User::class.java)
-                cloudResult.postValue(user)
+                cloudResult.postValue(user!!)
             }
             .addOnFailureListener{
                 Log.d(REPO_DEBUG, it.message.toString())

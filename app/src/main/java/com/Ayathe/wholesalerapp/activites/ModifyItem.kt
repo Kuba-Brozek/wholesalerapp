@@ -17,10 +17,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import com.Ayathe.wholesalerapp.R
-import com.Ayathe.wholesalerapp.databinding.ActivityMainBinding
 import com.Ayathe.wholesalerapp.repository.FirebaseRepository
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
@@ -39,12 +39,12 @@ class ModifyItem : AppCompatActivity() {
     private lateinit var mProgressDialog: ProgressDialog
     private val REQUEST_IMAGE_CAPTURE = 1
     private val repository = FirebaseRepository()
-    val db = Firebase.firestore
+    private val db = Firebase.firestore
     private val PROFILE_DEBUG = "PROFILE_DEBUG"
     private val storage = FirebaseStorage.getInstance()
     private lateinit var database: DatabaseReference
     private var filePath: Uri? = null
-    var storageRef = storage.reference
+    private var storageRef = storage.reference
     private var storageReference: StorageReference? = null
     private val btnSelectImage: AppCompatButton by lazy {
         findViewById(R.id.btn_choose_image) }
@@ -53,12 +53,12 @@ class ModifyItem : AppCompatActivity() {
     private val btnUpload: AppCompatButton by lazy {
         findViewById(R.id.btn_upload_image) }
 
-    private lateinit var binding: ActivityMainBinding
     var data: MutableList<String> = ArrayList()
-    var datadisplay: MutableList<String> = ArrayList()
-    lateinit var option: Spinner
+    private var datadisplay: MutableList<String> = ArrayList()
+    private lateinit var option: Spinner
 
 
+    private val auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modify_item)
@@ -68,6 +68,7 @@ class ModifyItem : AppCompatActivity() {
         val carid: String = intent.getStringExtra("carid").toString()
         val carimg: String = intent.getStringExtra("carimg").toString()
 
+        //val user = auth.currentUser?.uid
         initUI()
         moditemname.setText(carname)
         moditemdesc.setText(cardesc)
@@ -87,7 +88,8 @@ class ModifyItem : AppCompatActivity() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val choice: String = parent?.getItemAtPosition(position).toString();
+                val choice: String = parent?.getItemAtPosition(position).toString()
+                Toast.makeText(applicationContext, choice, Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -207,7 +209,7 @@ class ModifyItem : AppCompatActivity() {
             .addOnSuccessListener { documentReference ->
                 Toast.makeText(this, "Saved to DB", Toast.LENGTH_LONG).show()
             }
-            .addOnFailureListener { e ->
+            .addOnFailureListener {
                 Toast.makeText(this, "Error saving to DB", Toast.LENGTH_LONG).show()
             }
     }

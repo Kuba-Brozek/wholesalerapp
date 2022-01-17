@@ -1,10 +1,10 @@
 package com.Ayathe.wholesalerapp.activites
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
 import com.Ayathe.wholesalerapp.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -24,7 +24,7 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun isCurrentUser() {
-        fbAuth.currentUser?.let {auth ->
+        fbAuth.currentUser?.let {
             val intent = Intent(applicationContext, MainActivity::class.java).apply {
                 flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             }

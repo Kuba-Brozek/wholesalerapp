@@ -1,31 +1,19 @@
 package com.Ayathe.wholesalerapp.home
 
-import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
-import android.view.View
-import android.widget.EditText
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
 import com.Ayathe.wholesalerapp.BaseFragment
 import com.Ayathe.wholesalerapp.R
 import com.Ayathe.wholesalerapp.activites.AddItem
-import com.Ayathe.wholesalerapp.activites.MainActivity
 import com.Ayathe.wholesalerapp.activites.ModifyItem
 import com.Ayathe.wholesalerapp.data.Car
-import com.Ayathe.wholesalerapp.repository.FirebaseRepository
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import io.grpc.InternalChannelz.id
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.list_row.*
 
 class HomeFragment : BaseFragment(), OnCarItemLongClick {
 
