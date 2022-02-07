@@ -1,20 +1,22 @@
 package com.Ayathe.wholesalerapp.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.Ayathe.wholesalerapp.R
 import com.Ayathe.wholesalerapp.data.Car
+import com.bumptech.glide.Glide
 
 class CarAdapter(private val listener: OnCarItemLongClick) :
     RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
 
     private val carsList = ArrayList<Car>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setCars(list: List<Car>){
         carsList.clear()
         carsList.addAll(list)

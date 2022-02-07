@@ -206,7 +206,7 @@ class ModifyItem : AppCompatActivity() {
 
         db.collection("cars").document(id)
             .update(data)
-            .addOnSuccessListener { documentReference ->
+            .addOnSuccessListener {
                 Toast.makeText(this, "Saved to DB", Toast.LENGTH_LONG).show()
             }
             .addOnFailureListener {

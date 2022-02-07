@@ -1,18 +1,17 @@
 package com.Ayathe.wholesalerapp.repository
 
-import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.Ayathe.wholesalerapp.data.Car
+import com.Ayathe.wholesalerapp.data.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import com.Ayathe.wholesalerapp.data.Car
-import com.Ayathe.wholesalerapp.data.User
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 class FirebaseRepository {
     private val REPO_DEBUG = "REPO_DEBUG"
@@ -87,7 +86,7 @@ class FirebaseRepository {
             .get()
             .addOnSuccessListener {
                 val car = it.toObject(User::class.java)
-                cloudResult.postValue(car)
+                cloudResult.postValue(car!!)
             }
             .addOnFailureListener{
                 Log.d(REPO_DEBUG, it.message.toString())
